@@ -34,7 +34,6 @@ function createList(name, price){
             totalSpan.innerHTML=''
             alert(`Paid ${total.toFixed(2)} $, thankyou for eating with us today!`);
             total = 0;
-            TakeOrder();
         })
     }
     
@@ -81,28 +80,3 @@ function createCard(object){
     });
     
 }())
-
-function TakeOrder(){
-    let prepare = new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve({order_status:true, paid:false})
-        },1500)
-    });
-    prepare.then(orderPrep);
-}
-
-
-function orderPrep(){
-    let pay = new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve({order_status:true, paid:true})
-        },1000)
-    });
-    pay.then(payOrder);
-}
-
-function payOrder(){
-    if(val.paid==true){
-       console.log("Payment successful");
-    }
-}
