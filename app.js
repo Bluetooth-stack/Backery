@@ -17,26 +17,20 @@ function createList(name, price){
     total += price
     listContainer.appendChild(div);
 
-    totalSpan.innerText = total.toFixed(2) +"$";
+    totalSpan.innerText = total.toFixed(2) +"$"
 
-    if(listContainer.children.length == 0){
-        emptyTxt.getElementsByClassName.display = "block";
-        total = 0;
-    }
-    else{
+    if(listContainer.children.length > 0){
         emptyTxt.style.display = "none";
         totalContainer.style.display = "inline-block";
         button.disabled = false;
         button.style.cursor = "pointer";
-        button.addEventListener('click', ()=>{
-            button.disabled = true;
-            listContainer.innerHTML = '';
-            totalSpan.innerHTML=''
-            alert(`Paid ${total.toFixed(2)} $, thankyou for eating with us today!`);
-            total = 0;
-        })
     }
-    
+    else if(listContainer.children.length === 0){
+        emptyTxt.getElementsByClassName.display = "block";
+        button.style.cursor = 'not-allowed';
+        button.disabled = true;
+        total = 0;
+    }
 }
 
 function createCard(object){
@@ -78,5 +72,11 @@ function createCard(object){
     data.forEach(obj => {
         createCard(obj);
     });
-    
+    button.addEventListener('click', ()=>{
+        button.disabled = true;
+        listContainer.innerHTML = '';
+        totalSpan.innerHTML=''
+        alert(`Paid ${total.toFixed(2)} $, thankyou for eating with us today!`);
+        total = 0;
+    })
 }())
