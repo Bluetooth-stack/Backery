@@ -33,7 +33,7 @@ function createList(name, price){
         button.disabled = true;
         listContainer.innerHTML = '';
         totalSpan.innerHTML=''
-        alert(`Paid ${total} $, thankyou for eating with us today!`);
+        alert(`Paid ${total.toFixed(2)} $, thankyou for eating with us today!`);
         total = 0;
         orderPrep();
     })
