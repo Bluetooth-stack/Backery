@@ -28,15 +28,16 @@ function createList(name, price){
         totalContainer.style.display = "inline-block";
         button.disabled = false;
         button.style.cursor = "pointer";
+        button.addEventListener('click', ()=>{
+            button.disabled = true;
+            listContainer.innerHTML = '';
+            totalSpan.innerHTML=''
+            alert(`Paid ${total.toFixed(2)} $, thankyou for eating with us today!`);
+            total = 0;
+            TakeOrder();
+        })
     }
-    button.addEventListener('click', ()=>{
-        button.disabled = true;
-        listContainer.innerHTML = '';
-        totalSpan.innerHTML=''
-        alert(`Paid ${total.toFixed(2)} $, thankyou for eating with us today!`);
-        total = 0;
-        orderPrep();
-    })
+    
 }
 
 function createCard(object){
@@ -78,17 +79,10 @@ function createCard(object){
     data.forEach(obj => {
         createCard(obj);
     });
-    // TakeOrder();
-    let order = new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve({order1: "Cheeseburger", order2: "Pizza", order3: "Grilled Cheese Sandwich"})
-        },2500)
-    });
-    order.then(TakeOrder);
+    
 }())
 
-function TakeOrder(val){
-    console.log(val);
+function TakeOrder(){
     let prepare = new Promise((resolve)=>{
         setTimeout(()=>{
             resolve({order_status:true, paid:false})
@@ -98,8 +92,7 @@ function TakeOrder(val){
 }
 
 
-function orderPrep(val){
-    console.log(val);
+function orderPrep(){
     let pay = new Promise((resolve)=>{
         setTimeout(()=>{
             resolve({order_status:true, paid:true})
@@ -108,13 +101,8 @@ function orderPrep(val){
     pay.then(payOrder);
 }
 
-function payOrder(val){
-    console.log(val);
+function payOrder(){
     if(val.paid==true){
        console.log("Payment successful");
     }
 }
-
-// function thankyouFnc(){
-//     alert(`Paid ${total}, thankyou for eating with us today!`);
-// }
