@@ -25,12 +25,7 @@ function createList(name, price){
         button.disabled = false;
         button.style.cursor = "pointer";
     }
-    else if(listContainer.children.length === 0){
-        emptyTxt.getElementsByClassName.display = "block";
-        button.style.cursor = 'not-allowed';
-        button.disabled = true;
-        total = 0;
-    }
+   
 }
 
 function createCard(object){
@@ -73,10 +68,17 @@ function createCard(object){
         createCard(obj);
     });
     button.addEventListener('click', ()=>{
+        alert(`Paid ${total.toFixed(2)} $, thankyou for eating with us today!`);
         button.disabled = true;
         listContainer.innerHTML = '';
         totalSpan.innerHTML=''
-        alert(`Paid ${total.toFixed(2)} $, thankyou for eating with us today!`);
         total = 0;
+        while (listContainer.hasChildNodes()){
+            listContainer.removeChild(listContainer.firstChild);
+        }
+        emptyTxt.style.display = "block";
+        totalContainer.style.display = 'none';
+        button.style.cursor = 'not-allowed';
+        button.disabled = true;
     })
 }())
