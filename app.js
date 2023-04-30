@@ -68,11 +68,11 @@ function createCard(object){
         createCard(obj);
     });
     button.addEventListener('click', ()=>{
-        alert(`Paid ${total.toFixed(2)} $, thankyou for eating with us today!`);
+       
         button.disabled = true;
         listContainer.innerHTML = '';
         totalSpan.innerHTML=''
-        total = 0;
+       
         while (listContainer.hasChildNodes()){
             listContainer.removeChild(listContainer.firstChild);
         }
@@ -80,5 +80,9 @@ function createCard(object){
         totalContainer.style.display = 'none';
         button.style.cursor = 'not-allowed';
         button.disabled = true;
+        setTimeout(()=>{
+            alert(`Paid ${total.toFixed(2)} $, thankyou for eating with us today!`);
+            total = 0;
+        },1800);
     })
 }())
