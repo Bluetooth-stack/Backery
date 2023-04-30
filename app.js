@@ -17,7 +17,7 @@ function createList(name, price){
     total += price
     listContainer.appendChild(div);
 
-    totalSpan.innerText = total +"$"
+    totalSpan.innerText = total.toFixed(2) +"$";
 
     if(listContainer.children.length == 0){
         emptyTxt.getElementsByClassName.display = "block";
