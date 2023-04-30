@@ -206,7 +206,7 @@ nav{
     font-weight: 300;
     background-color: rgba(128, 128, 128, 0.596);
     color: white;
-    margin: 0 20px;
+    margin: 0 20px 20px 0;
 }
 
 .empty{
