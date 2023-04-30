@@ -62,12 +62,10 @@ function createCard(object){
     
     container.appendChild(div1);
 
-    // const btn = document.querySelector('.addBtn');
     addBtn.addEventListener('click', ()=>{
         // console.log(object.name, object.price);
         createList(object.name, object.price)
     })
-    // btnListener()
 }
 
 
